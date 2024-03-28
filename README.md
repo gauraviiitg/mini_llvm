@@ -48,7 +48,7 @@ clang++ -shared -o MemoryAnalysisPass.so MemoryAnalysisPass.o llvm-config --ldfl
 opt -load ./MemoryAnalysisPass.so -memory-analysis-pass < example.ll > /dev/null
 
 ### 8) Run the LLVM Pass with Legacy Pass Manager Enabled:
-opt -enable-new-pm=0 -load ./MemoryAnalysisPass.so -memory-analysis-pass < example.ll > /dev/null
+opt -enable-new-pm=0 -load ./MemoryAnalysisPass.so -memory-analysis-pass < optimized_example.ll > /dev/null
 ## Troubleshooting
 
 If you encounter any issues or have questions about the project, please don't hesitate to reach out for support. You can contact m via:
