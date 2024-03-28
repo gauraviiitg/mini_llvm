@@ -22,7 +22,7 @@ calculateMemoryRequirements Method: Computes the memory usage of a basic block b
 getTypeSize Method: Determines the size of allocated types.
 getBasicBlockID Method: Assigns a unique ID to each basic block.
 
-##Instructions for Use
+## Instructions for Use
 
 To use the Memory Analysis LLVM Pass for Python applications, follow these steps:
 
