@@ -45,7 +45,7 @@ clang++ -c -fPIC MemoryAnalysisPass.cpp -o MemoryAnalysisPass.o llvm-config --cx
 clang++ -shared -o MemoryAnalysisPass.so MemoryAnalysisPass.o llvm-config --ldflags
 
 ### 7) Run the LLVM Pass:   # may not work due to changes in the pass manager, skip to step 8 if : https://groups.google.com/g/llvm-dev/c/kQYV9dCAfSg?pli=1
-opt -load ./MemoryAnalysisPass.so -memory-analysis-pass < example.ll > /dev/null
+opt -load ./MemoryAnalysisPass.so -memory-analysis-pass < optimized_example.ll > /dev/null
 
 ### 8) Run the LLVM Pass with Legacy Pass Manager Enabled:
 opt -enable-new-pm=0 -load ./MemoryAnalysisPass.so -memory-analysis-pass < optimized_example.ll > /dev/null
