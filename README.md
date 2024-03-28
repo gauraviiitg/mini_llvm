@@ -26,26 +26,26 @@ getBasicBlockID Method: Assigns a unique ID to each basic block.
 
 To use the Memory Analysis LLVM Pass for Python applications, follow these steps:
 
-### Convert Python File to C using Cython: Assume that example.c file is the output of this step.
+### 1) Convert Python File to C using Cython: Assume that example.c file is the output of this step.
 
-### Install Clang and LLVM:
+### 2) Install Clang and LLVM:
 sudo apt-get update
 sudo apt-get install clang llvm
 
-### Compile the C Code to LLVM IR:
+### 3) Compile the C Code to LLVM IR:
 clang -S -emit-llvm example.c -o example.ll
 
-### Optimize the LLVM IR:
+### 4) Optimize the LLVM IR:
 opt -O3 -S example.ll -o optimized_example.ll
 
-### Compile the LLVM Pass Code:
+### 5) Compile the LLVM Pass Code:
 clang++ -c -fPIC MemoryAnalysisPass.cpp -o MemoryAnalysisPass.o llvm-config --cxxflags
 
-### Link the LLVM Pass to Create a Shared Library:
+### 6) Link the LLVM Pass to Create a Shared Library:
 clang++ -shared -o MemoryAnalysisPass.so MemoryAnalysisPass.o llvm-config --ldflags
 
-### Run the LLVM Pass:   # may not work due to changes in the pass manager: https://groups.google.com/g/llvm-dev/c/kQYV9dCAfSg?pli=1
+### 7) Run the LLVM Pass:   # may not work due to changes in the pass manager: https://groups.google.com/g/llvm-dev/c/kQYV9dCAfSg?pli=1
 opt -load ./MemoryAnalysisPass.so -memory-analysis-pass < example.ll > /dev/null
 
-### Run the LLVM Pass with Legacy Pass Manager Enabled:
+### 8) Run the LLVM Pass with Legacy Pass Manager Enabled:
 opt -enable-new-pm=0 -load ./MemoryAnalysisPass.so -memory-analysis-pass < example.ll > /dev/null
