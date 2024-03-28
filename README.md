@@ -29,7 +29,7 @@ To use the Memory Analysis LLVM Pass for Python applications, follow these steps
 ### 1) Convert Python File to C using Cython: Assume that example.c file is the output of this step.
 
 ### 2) Install Clang and LLVM:
-sudo apt-get update
+sudo apt-get update  
 sudo apt-get install clang llvm
 
 ### 3) Compile the C Code to LLVM IR:
