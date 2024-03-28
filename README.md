@@ -1,4 +1,4 @@
-Memory Analysis LLVM Pass for Python Applications
+#Memory Analysis LLVM Pass for Python Applications
 
 Overview
 This project implements an LLVM Pass to analyze Python applications and determine the memory requirements for each basic block of the program. The pass calculates the memory usage by inspecting the alloca instructions within each basic block and determining the size of allocated types.
